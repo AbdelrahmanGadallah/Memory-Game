@@ -1,0 +1,123 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+.control-switch {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgb(0 188 212 / 88%);
+    z-index: 2;
+}
+.control-switch span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #f00;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    width: 1100px;
+    max-width: 100%;
+    padding: 10px;
+    border: 3px solid rgb(67, 67, 168);
+    margin: 15px 0;
+}
+.blocks-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 1100px;
+    max-width: 100%;
+}
+.blocks-container.no-click {
+    pointer-events: none;
+}
+@media (max-width: 767px) {
+    .game-block {
+        flex-basis: 49%;
+    }
+}
+@media (min-width: 768px) {
+    .game-block {
+        flex-basis: 33%;
+    }
+}
+@media (min-width: 992px) {
+    .game-block {
+        flex-basis: 24%;
+    }
+}
+.game-block img {
+    width: 100%;
+    height: 100%;
+}
+.game-block {
+    transition: transform .5s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    width: 265px;
+    height: 200px;
+    margin: 10px 0;
+}
+.game-block .fornt {
+    background-color: #333;
+    line-height: 200px;
+}
+.game-block .fornt:before {
+    content: "!";
+    font-size: 180px;
+    font-weight: bold;
+    color: #fff;
+}
+.game-block .back {
+    transform: rotateY(180deg);
+    background-color:#382626;
+}
+.game-block .face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgb(67, 67, 168);
+    backface-visibility: hidden;
+    text-align: center;
+}
+.game-block.is-flipped,
+.game-block.has-matched {
+    transform: rotateY(180deg);
+}
